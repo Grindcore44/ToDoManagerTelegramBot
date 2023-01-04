@@ -16,14 +16,14 @@ public class UnitTest1
         var expectedStatus = false;
 
         // act
-        var constructor = new Constructor(
+        var constructor = new ToDoItem(
             expectedId,
             expectedUserId,
             expectedName,
             expectedDeadLine,
             expectedPriority,
             expectedStatus);
-        var actualId = constructor.ID;
+        var actualId = constructor.Id;
         var actualUserId = constructor.UserId;
         var actualName = constructor.Name;
         var actualDeadLine = constructor.DeadLine;
@@ -53,11 +53,11 @@ public class UnitTest1
 
 
         // act
-        var constructor = new Constructor(
+        var constructor = new ToDoItem(
             expectedId,
             expectedUserId,
             expectedName);
-        var actualId = constructor.ID;
+        var actualId = constructor.Id;
         var actualUserId = constructor.UserId;
         var actualName = constructor.Name;
         var actualDeadLine = constructor.DeadLine;
@@ -82,12 +82,12 @@ public class UnitTest1
         var expectedUserId = "userId";
         var expectedName = "name";
 
-        var constructor = new Constructor(
+        var constructor = new ToDoItem(
            expectedId,
            expectedUserId,
            expectedName);
         // act
-        constructor.Closes();
+        constructor.Close();
         // assert
         Assert.False(constructor.Status);
     }
@@ -105,9 +105,9 @@ public class UnitTest1
         var expectedStatus = status;
 
 
-        var constructor = new Constructor(111, "userId", "name", null);
+        var constructor = new ToDoItem(111, "userId", "name", null);
         // act
-        constructor.Ñhanges(name, DateTime.Now, priority, status);
+        constructor.UpDate(name, DateTime.Now, priority, status);
         var actualname = constructor.Name;
         var actualPriority = priority;
         var actualStatus = constructor.Status;
@@ -129,7 +129,7 @@ public class UnitTest1
         var expectedStatus = true;
 
 
-        var constructor = new Constructor(
+        var constructor = new ToDoItem(
             111, 
             "userId", 
             expectedName, 
@@ -137,7 +137,7 @@ public class UnitTest1
             expectedPriority,
             expectedStatus);
         // act
-        constructor.Ñhanges();
+        constructor.UpDate();
         var actualname = constructor.Name;
         var actualDeadLine = constructor.DeadLine;
         var actualPriority = constructor.Priority;
