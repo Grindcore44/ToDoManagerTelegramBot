@@ -2,10 +2,10 @@ using Xunit;
 
 namespace ToDoManagerTelegramBot.App;
 
-public class UnitTest1
+public class ToDoItemTests
 {
     [Fact]
-    public void Constructor1()
+    public void Creating_Class_WithoutNull()
     {
         // arrange
         var expectedId = 111;
@@ -23,6 +23,7 @@ public class UnitTest1
             expectedDeadLine,
             expectedPriority,
             expectedStatus);
+
         var actualId = constructor.Id;
         var actualUserId = constructor.UserId;
         var actualName = constructor.Name;
@@ -37,11 +38,10 @@ public class UnitTest1
         Assert.Equal(expectedDeadLine, actualDeadLine);
         Assert.Equal(expectedPriority, actualPriority);
         Assert.Equal(expectedStatus, actualStatus);
-
     }
 
     [Fact]
-    public void Constructor2()
+    public void Creating_Class_With_Null()
     {
         // arrange
         var expectedId = 111;
@@ -51,12 +51,12 @@ public class UnitTest1
         var expectedPriority = false;
         var expectedStatus = true;
 
-
         // act
         var constructor = new ToDoItem(
             expectedId,
             expectedUserId,
             expectedName);
+
         var actualId = constructor.Id;
         var actualUserId = constructor.UserId;
         var actualName = constructor.Name;
@@ -71,11 +71,10 @@ public class UnitTest1
         Assert.Equal(expectedDeadLine, actualDeadLine);
         Assert.Equal(expectedPriority, actualPriority);
         Assert.Equal(expectedStatus, actualStatus);
-
     }
 
     [Fact]
-    public void Closes()
+    public void Close_ShouldClose_DoesNotClosed()
     {
         // arrange
         var expectedId = 111;
@@ -86,8 +85,10 @@ public class UnitTest1
            expectedId,
            expectedUserId,
            expectedName);
+
         // act
         constructor.Close();
+        
         // assert
         Assert.False(constructor.Status);
     }
@@ -97,17 +98,28 @@ public class UnitTest1
     [InlineData("TestName2", true, false)]
     [InlineData("TestName3", true, true)]
     [InlineData("TestName4", false, true)]
-    public void Ñhanges(string? name = null, bool priority = false, bool? status = null)
+    public void Update_ShouldUpdate_AllVersionsTrueFalseForPriorityAndStatus(
+        string? name = null, 
+        bool priority = false, 
+        bool? status = null)
     {
         // arrange
         var expectedName = name;
         var expectedPriority = priority;
         var expectedStatus = status;
+        var constructor = new ToDoItem(
+            111, 
+            "userId", 
+            "name", 
+            null);
 
-
-        var constructor = new ToDoItem(111, "userId", "name", null);
         // act
-        constructor.Update(name, DateTime.Now, priority, status);
+        constructor.Update(
+            name, 
+            DateTime.Now, 
+            priority, 
+            status);
+
         var actualname = constructor.Name;
         var actualPriority = priority;
         var actualStatus = constructor.Status;
@@ -116,18 +128,16 @@ public class UnitTest1
         Assert.Equal(expectedName, actualname);
         Assert.Equal(expectedPriority, actualPriority);
         Assert.Equal(expectedStatus, actualStatus);
-
     }
 
     [Fact]
-    public void Ñhanges1()
+    public void Update_ShouldUpdate_WithDateTime()
     {
         // arrange
         var expectedName = "name";
         var expectedDeadLine = DateTime.Now;
         var expectedPriority = true;
         var expectedStatus = true;
-
 
         var constructor = new ToDoItem(
             111, 
@@ -136,17 +146,18 @@ public class UnitTest1
             expectedDeadLine, 
             expectedPriority,
             expectedStatus);
+
         // act
         constructor.Update();
         var actualname = constructor.Name;
         var actualDeadLine = constructor.DeadLine;
         var actualPriority = constructor.Priority;
         var actualStatus = constructor.Status;
+
         // assert
         Assert.Equal(expectedName, actualname);
         Assert.Equal(expectedDeadLine, actualDeadLine);
         Assert.Equal(expectedPriority, actualPriority);
         Assert.Equal(expectedStatus, actualStatus);
     }
-
 }
