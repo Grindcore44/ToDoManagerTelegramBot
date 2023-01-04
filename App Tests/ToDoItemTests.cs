@@ -5,7 +5,7 @@ namespace ToDoManagerTelegramBot.App;
 public class ToDoItemTests
 {
     [Fact]
-    public void Constructor_ShouldCreateInstant_SubstantialValue()
+    public void Constructor_ShouldCreateInstant()
     {
         // arrange
         var expectedId = 111;
