@@ -5,7 +5,7 @@ namespace ToDoManagerTelegramBot.App;
 public class ToDoItemTests
 {
     [Fact]
-    public void Creating_Class_WithoutNull()
+    public void Constructor_ShouldCreateInstant_SubstantialValue()
     {
         // arrange
         var expectedId = 111;
@@ -41,7 +41,7 @@ public class ToDoItemTests
     }
 
     [Fact]
-    public void Creating_Class_With_Null()
+    public void Constructor_ShouldCreateInstant_WithOutStatusAndPriority()
     {
         // arrange
         var expectedId = 111;
@@ -98,7 +98,7 @@ public class ToDoItemTests
     [InlineData("TestName2", true, false)]
     [InlineData("TestName3", true, true)]
     [InlineData("TestName4", false, true)]
-    public void Update_ShouldUpdate_AllVersionsTrueFalseForPriorityAndStatus(
+    public void Update_ShouldUpdate(
         string? name = null, 
         bool priority = false, 
         bool? status = null)
