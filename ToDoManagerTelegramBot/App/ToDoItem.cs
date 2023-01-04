@@ -1,9 +1,4 @@
-﻿using System.ComponentModel.Design;
-using System.Xml.Linq;
-
-namespace ToDoManagerTelegramBot.App;
-
-public sealed class ToDoItem
+﻿public sealed class ToDoItem
 {
     private int _id;
     private string _userId;
@@ -41,7 +36,7 @@ public sealed class ToDoItem
         _status = false; 
     }
 
-    public void UpDate(
+    public void Update(
         string? name = null, 
         DateTime? deadLine = null, 
         bool? priority = null, 
@@ -67,5 +62,4 @@ public sealed class ToDoItem
             _status = status.Value;
         }
     }
-
 }

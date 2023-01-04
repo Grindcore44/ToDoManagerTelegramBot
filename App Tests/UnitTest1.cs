@@ -107,7 +107,7 @@ public class UnitTest1
 
         var constructor = new ToDoItem(111, "userId", "name", null);
         // act
-        constructor.UpDate(name, DateTime.Now, priority, status);
+        constructor.Update(name, DateTime.Now, priority, status);
         var actualname = constructor.Name;
         var actualPriority = priority;
         var actualStatus = constructor.Status;
@@ -137,7 +137,7 @@ public class UnitTest1
             expectedPriority,
             expectedStatus);
         // act
-        constructor.UpDate();
+        constructor.Update();
         var actualname = constructor.Name;
         var actualDeadLine = constructor.DeadLine;
         var actualPriority = constructor.Priority;
