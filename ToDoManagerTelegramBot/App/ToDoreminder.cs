@@ -14,7 +14,7 @@ public sealed class ToDoReminder
     }
 
     public ToDoItem ToDoItem => _toDoitem;
-    public TimeSpan RemainingTime => _reminderTime.Subtract(DateTime.Now);
+    public DateTime ReminderTime => _reminderTime;
     public bool Remindered { get; private set; }
 
     public bool NeedToRemainder()
