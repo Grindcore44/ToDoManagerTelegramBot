@@ -1,34 +1,16 @@
 ﻿namespace ToDoManagerTelegramBot.App;
 
-sealed public class ToDoReminder
+public sealed class ToDoReminder
 {
-    private DateTime? _deadLine;
-    private bool _status;
+    private ToDoItem _toDoitem;
+    private DateTime _reminderTime;
 
-    public ToDoReminder(ToDoItem toDoItem)
+    public ToDoReminder(ToDoItem toDoItem, DateTime reminderTime)
     {
-        _deadLine = toDoItem.DeadLine;
-        _status = toDoItem.Status;
+        _toDoitem = toDoItem;
+        _reminderTime = reminderTime;
     }
 
-    public bool Status => _status;
-    public DateTime? DeadLine => _deadLine;
-    public DateTime? DateTimeNow => DateTime.Now;
-    public DateTime? RemainingTime => _deadLine.Subtract(DateTime.Now);
-
-    public void DecideSendMessage()
-    {
-        if (_status != false)
-        { 
-            // я не знаю как прописать разницу между дейттаймами
-            // напоминания присылаются в 3-х случаях за сутки, за 2 часа, за час
-        }
-    }
-
-    public void SendMessage(string message)
-    {
-        /// присылает сообщение о том, сколько осталось времени => RemainingTime
-    }
-
-
+    public bool ToDoStatus => _toDoitem.Status;
+    public TimeSpan RemainingTime => _reminderTime.Subtract(DateTime.Now);
 }

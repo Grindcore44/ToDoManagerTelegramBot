@@ -1,4 +1,6 @@
-﻿public sealed class ToDoItem
+﻿using ToDoManagerTelegramBot.App;
+
+public sealed class ToDoItem
 {
     private int _id;
     private string _userId;
@@ -30,6 +32,7 @@
     public DateTime? DeadLine => _deadLine;
     public bool Priority => _priority;
     public bool Status => _status;
+    public bool Reminder { get; private set; }
 
     public void Close()
     { 
@@ -61,5 +64,11 @@
         {
             _status = status.Value;
         }
+    }
+
+    public void CreateReminder(DateTime reminderTime)
+    {
+        var todoReminder = new ToDoReminder(this, reminderTime);
+        Reminder = true;
     }
 }
