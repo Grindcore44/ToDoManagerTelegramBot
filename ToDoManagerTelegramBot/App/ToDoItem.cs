@@ -32,7 +32,6 @@ public sealed class ToDoItem
     public DateTime? DeadLine => _deadLine;
     public bool Priority => _priority;
     public bool Status => _status;
-    public bool Reminder { get; private set; }
 
     public void Close()
     { 
@@ -66,9 +65,9 @@ public sealed class ToDoItem
         }
     }
 
-    public void CreateReminder(DateTime reminderTime)
+    public ToDoReminder CreateReminder(DateTime reminderTime)
     {
         var todoReminder = new ToDoReminder(this, reminderTime);
-        Reminder = true;
+        return todoReminder;
     }
 }

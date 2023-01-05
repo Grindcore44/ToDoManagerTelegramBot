@@ -11,6 +11,17 @@ public sealed class ToDoReminder
         _reminderTime = reminderTime;
     }
 
-    public bool ToDoStatus => _toDoitem.Status;
+    public ToDoItem ToDoItem => _toDoitem;
     public TimeSpan RemainingTime => _reminderTime.Subtract(DateTime.Now);
+    public bool Remindered { get; private set; }
+
+    public bool MakeReminde()
+    {
+        return Remindered == false && DateTime.UtcNow > _reminderTime;
+    }
+
+    public void Remaindered()
+    {
+        Remindered = true;
+    }
 }
