@@ -9,13 +9,15 @@ public sealed class ToDoReminder
     {
         _toDoitem = toDoItem;
         _reminderTime = reminderTime;
+
+        Remindered = false;
     }
 
     public ToDoItem ToDoItem => _toDoitem;
     public TimeSpan RemainingTime => _reminderTime.Subtract(DateTime.Now);
     public bool Remindered { get; private set; }
 
-    public bool MakeReminde()
+    public bool NeedToRemainder()
     {
         return Remindered == false && DateTime.UtcNow > _reminderTime;
     }
