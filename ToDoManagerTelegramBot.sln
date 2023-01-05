@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToDoManagerTelegramBot", "ToDoManagerTelegramBot\ToDoManagerTelegramBot.csproj", "{357C585D-158F-4AA7-BE16-239C164F11B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoManagerTelegramBot", "ToDoManagerTelegramBot\ToDoManagerTelegramBot.csproj", "{357C585D-158F-4AA7-BE16-239C164F11B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "App Tests", "App Tests\App Tests.csproj", "{87437AA5-C2C4-4872-A54F-CA5AF3E2814E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ToDoManagerTelegramBotTests", "App Tests\ToDoManagerTelegramBotTests.csproj", "{87437AA5-C2C4-4872-A54F-CA5AF3E2814E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
