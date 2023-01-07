@@ -2,7 +2,7 @@
 
 public sealed class ToDoItem
 {
-    private int _id;
+    private Guid _id;
     private string _userId;
     private string _name;
     private DateTime? _deadLine;
@@ -10,12 +10,12 @@ public sealed class ToDoItem
     private bool _status;
 
     public ToDoItem(
-        int id,
+        Guid id,
         string userId,
         string name,
-        DateTime? deadLine = null,
-        bool priority = false,
-        bool status = true)
+        DateTime? deadLine,
+        bool priority,
+        bool status)
 
     {
         _id = id;
@@ -26,7 +26,7 @@ public sealed class ToDoItem
         _status = status;
     }
 
-    public int Id => _id;
+    public Guid Id => _id;
     public string UserId => _userId;
     public string Name => _name;
     public DateTime? DeadLine => _deadLine;
@@ -69,5 +69,31 @@ public sealed class ToDoItem
     {
         var todoReminder = new ToDoReminder(this, reminderTime);
         return todoReminder;
+    }
+
+    public static ToDoItem Create(
+        string userId,
+        string name,
+        DateTime? deadLine = null,
+        bool priority = false)
+    { 
+        var id = Guid.NewGuid();
+
+        if (string.IsNullOrWhiteSpace(userId))
+        { 
+            throw new ArgumentNullException(); 
+        }
+
+        if (string.IsNullOrWhiteSpace(name))
+        { 
+            throw new ArgumentNullException(); 
+        }
+
+        if (deadLine.HasValue && DateTime.UtcNow > deadLine.Value)
+        {
+           throw new ArgumentException();
+        }
+
+        return new ToDoItem(id, userId, name, deadLine, priority, true);
     }
 }

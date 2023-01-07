@@ -2,6 +2,7 @@
 
 public sealed class ToDoReminder
 {
+    private Guid _reminderId;
     private ToDoItem _toDoitem;
     private DateTime _reminderTime;
 
@@ -9,21 +10,23 @@ public sealed class ToDoReminder
     {
         _toDoitem = toDoItem;
         _reminderTime = reminderTime;
+        _reminderId = Guid.NewGuid();
 
-        Remindered = false;
+        Reminded = false;
     }
 
+    public Guid ReminderId => _reminderId;
     public ToDoItem ToDoItem => _toDoitem;
     public DateTime ReminderTime => _reminderTime;
-    public bool Remindered { get; private set; }
+    public bool Reminded { get; private set; }
 
     public bool NeedToRemainder()
     {
-        return Remindered == false && DateTime.UtcNow > _reminderTime;
+        return Reminded == false && DateTime.UtcNow > _reminderTime;
     }
 
     public void Remaindered()
     {
-        Remindered = true;
+        Reminded = true;
     }
 }
