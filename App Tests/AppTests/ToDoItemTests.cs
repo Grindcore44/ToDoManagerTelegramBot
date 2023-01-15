@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace ToDoManagerTelegramBot.App;
+namespace App_Tests.AppTests;
 
 public class ToDoItemTests
 {

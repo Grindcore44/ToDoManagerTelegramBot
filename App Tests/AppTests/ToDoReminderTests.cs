@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using ToDoManagerTelegramBot.App;
+using Xunit;
 
-namespace ToDoManagerTelegramBot.App;
+namespace App_Tests.AppTests;
 public class ToDoReminderTests
 {
     [Fact]
