@@ -23,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ToDoManagerTelegramBot\ToDoManagerTelegramBot.csproj" />
+    <ProjectReference Include="..\ToDoManagerTelegramBot\ToDoManager.TelegramBot.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,4 @@
-﻿using ToDoManagerTelegramBot.App;
+﻿using ToDoManagerTelegramBot.TodoItems;
 
 public sealed class ToDoItem
 {
@@ -65,9 +65,9 @@ public sealed class ToDoItem
         }
     }
 
-    public ToDoReminder CreateReminder(DateTime reminderTime)
+    public ToDoItemReminder CreateReminder(DateTime reminderTime)
     {
-        var todoReminder = new ToDoReminder(this, reminderTime);
+        var todoReminder = new ToDoItemReminder(this, reminderTime);
         return todoReminder;
     }
 

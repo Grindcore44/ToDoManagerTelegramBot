@@ -1,12 +1,12 @@
-﻿namespace ToDoManagerTelegramBot.App;
+﻿namespace ToDoManagerTelegramBot.TodoItems;
 
-public sealed class ToDoReminder
+public sealed class ToDoItemReminder
 {
     private Guid _reminderId;
     private ToDoItem _toDoitem;
     private DateTime _reminderTime;
 
-    public ToDoReminder(ToDoItem toDoItem, DateTime reminderTime)
+    public ToDoItemReminder(ToDoItem toDoItem, DateTime reminderTime)
     {
         _toDoitem = toDoItem;
         _reminderTime = reminderTime;

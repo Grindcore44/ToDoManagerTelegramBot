@@ -1,4 +1,4 @@
-﻿using ToDoManagerTelegramBot.App;
+﻿using ToDoManagerTelegramBot.TodoItems;
 using Xunit;
 
 namespace App_Tests.AppTests;
@@ -24,7 +24,7 @@ public class ToDoReminderTests
         var expectedReminderedTime = DateTime.UtcNow.Add(TimeSpan.FromMinutes(17));
 
         // act
-        var todoReminder = new ToDoReminder(expectedToDoItem, expectedReminderedTime);
+        var todoReminder = new ToDoItemReminder(expectedToDoItem, expectedReminderedTime);
         var actualTodoItem = todoReminder.ToDoItem;
         var actualReminderedTime = todoReminder.ReminderTime;
 
@@ -52,7 +52,7 @@ public class ToDoReminderTests
             priority,
             status);
         var reminderedTime = DateTime.UtcNow.Add(TimeSpan.FromMinutes(-1));
-        var todoReminder = new ToDoReminder(toDoItem, reminderedTime);
+        var todoReminder = new ToDoItemReminder(toDoItem, reminderedTime);
 
         // act
         var result = todoReminder.NeedToRemainder();
@@ -62,7 +62,6 @@ public class ToDoReminderTests
     }
 
     [Fact]
-
     public void NeedToRemainder_ShouldBeReturnFalse_reminderTimeHasNotComeYet()
     {
         // arrange
@@ -80,7 +79,7 @@ public class ToDoReminderTests
             priority,
             status);
         var reminderedTime = DateTime.UtcNow.Add(TimeSpan.FromMinutes(22));
-        var todoReminder = new ToDoReminder(toDoItem, reminderedTime);
+        var todoReminder = new ToDoItemReminder(toDoItem, reminderedTime);
 
         // act
         var result = todoReminder.NeedToRemainder();
@@ -90,7 +89,6 @@ public class ToDoReminderTests
     }
 
     [Fact]
-
     public void Remaindered_ShouldReminderedIsTrue()
     {
         // arrange
@@ -108,7 +106,7 @@ public class ToDoReminderTests
             priority,
             status);
         var reminderedTime = DateTime.UtcNow.Add(TimeSpan.FromMinutes(22));
-        var todoReminder = new ToDoReminder(toDoItem, reminderedTime);
+        var todoReminder = new ToDoItemReminder(toDoItem, reminderedTime);
 
         // act
         todoReminder.Remaindered();
